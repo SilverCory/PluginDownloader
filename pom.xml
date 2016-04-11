@@ -79,6 +79,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -93,8 +94,8 @@
 
     <repositories>
         <repository>
-            <id>maxim-public</id>
-            <url>http://repo.mvdw-software.be/content/groups/public/be/maximvdw/</url>
+            <id>mvn.ryred.co</id>
+            <url>http://mvn.ryred.co/repository/snapshots/</url>
         </repository>
     </repositories>
 

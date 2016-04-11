@@ -67,7 +67,7 @@ public class PluginDownloader {
 
 		OptionSet options = optionParser.parse( args );
 
-		if( !options.has( resourceId ) || resourceId.value( options ) > 0 ) {
+		if( !options.has( resourceId ) || resourceId.value( options ) < 0 ) {
 			System.err.println( "You need to supply a valid resource id!" );
 			System.exit( 1 );
 		} else if ( !options.has( filename ) ) {
@@ -97,7 +97,7 @@ public class PluginDownloader {
 			System.exit( 1 );
 		}
 
-		File saveFile = new File( ".", filename.value( options ) );
+		File saveFile = new File( filename.value( options ) );
 
 		if( saveFile.exists() ) {
 			saveFile.delete();
@@ -105,7 +105,7 @@ public class PluginDownloader {
 			saveFile.getParentFile().mkdirs();
 		}
 
-		System.out.println( "Saving \"" + resource.getResourceName() + "\" by " + resource.getAuthor() );
+		System.out.println( "Saving \"" + resource.getResourceName() + "\" by " + resource.getAuthor().getUsername() );
 		System.out.println( "\t to file: " + saveFile.getPath() );
 
 		resource.downloadResource( user, saveFile );
